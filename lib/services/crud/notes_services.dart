@@ -1,4 +1,4 @@
-import 'dart:async';
+/* import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:mynotes/extensions/list/filter.dart';
 import 'package:sqflite/sqflite.dart';
@@ -357,4 +357,4 @@ const createNoteTable = '''
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
           );
-          ''';
+          '''; */
