@@ -31,10 +31,10 @@ class FirebaseAuthProvider implements AuthProvider {
       } else if (e.code == 'invalid-email') {
         throw InvalidEmailAuthExceptions();
       } else {
-        throw GenericAuthExceptions();
+        throw GenericAuthException();
       }
     } catch (_) {
-      throw GenericAuthExceptions();
+      throw GenericAuthException();
     }
   }
 
@@ -66,14 +66,14 @@ class FirebaseAuthProvider implements AuthProvider {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        throw UserNotFoundAuthExceptions();
+        throw UserNotFoundAuthException();
       } else if (e.code == 'wrong-password') {
-        throw WrongPasswordAuthExceptions();
+        throw WrongPasswordAuthException();
       } else {
-        throw GenericAuthExceptions();
+        throw GenericAuthException();
       }
     } catch (_) {
-      throw GenericAuthExceptions();
+      throw GenericAuthException();
     }
   }
 

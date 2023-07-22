@@ -80,7 +80,7 @@ class _RegisterViewState extends State<RegisterView> {
                     context,
                     'This is an invalid email address',
                   );
-                } on GenericAuthExceptions {
+                } on GenericAuthException {
                   await showErrorDialog(
                     context,
                     'Faild to register',

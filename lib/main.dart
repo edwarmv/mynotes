@@ -13,23 +13,23 @@ import 'package:mynotes/views/verify_email_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-      useMaterial3: true,
+  runApp(BlocProvider<AuthBloc>(
+    create: (context) => AuthBloc(FirebaseAuthProvider()),
+    child: MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
+      routes: {
+        loginRoute: (context) => const LoginView(),
+        registerRoute: (context) => const RegisterView(),
+        notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
+        createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
+      },
     ),
-    home: BlocProvider<AuthBloc>(
-      create: (context) => AuthBloc(FirebaseAuthProvider()),
-      child: const HomePage(),
-    ),
-    routes: {
-      loginRoute: (context) => const LoginView(),
-      registerRoute: (context) => const RegisterView(),
-      notesRoute: (context) => const NotesView(),
-      verifyEmailRoute: (context) => const VerifyEmailView(),
-      createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
-    },
   ));
 }
 
